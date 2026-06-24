@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  rag_api:
+    build: .
+    container_name: rag_api
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENROUTER_API_KEY=sk-or-v1-{put ur API key here}
+    volumes:
+      # Mount a local folder so you can drop CVs/docs into ./data
+      # without rebuilding the image
+      - ./data:/data
